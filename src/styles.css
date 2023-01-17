@@ -1,25 +1,25 @@
-
 body{
-   background-image: url(assets/fondo_navidad.jpg);
+   background-image: url(./assets/fondo_navidad.jpg);
 }
 
+.aa{
+   display: flex;
+   justify-content: center;
+}
 
 .container{
+   background-color: aqua;
    display: flex;
-   /* background-color: aliceblue; */
+   width: 50rem;
+   height: 50rem;
    justify-content: center;
    align-items: center;
-   height: 50rem;
-
 }
 
 .box{
-   /* background-color: antiquewhite; */
-   border: 2px solid black;
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   width: 50%;
-   height: 50%;
+   background-color: white;
+   width: 70%;
+   height: 30%;
+   margin: 2px;
+   padding: 5px;
 }
