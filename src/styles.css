@@ -8,16 +8,22 @@ body{
 }
 
 .container{
-   background-color: aqua;
+   
    display: flex;
    width: 50rem;
    height: 50rem;
    justify-content: center;
    align-items: center;
+   
 }
 
 .box{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
    background-color: white;
+   border: 3px solid black;
    width: 70%;
    height: 30%;
    margin: 2px;

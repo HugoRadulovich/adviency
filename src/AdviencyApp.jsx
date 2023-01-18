@@ -1,63 +1,55 @@
-import { useState } from "react"
-import { useForm } from "./hooks/useForm"
+
+import React from 'react'
+import { useForm } from './hooks/useForm'
 
 
+const initialState = [{
+    id: new Date().getTime(),
+    description: "Bicicleta",
+    done: false,
+},
+{
+    id: new Date().getTime(),
+    description: "Pista de carreras",
+    done: false,
+}
+]
 
 export const AdviencyApp = () => {
 
-    const {description,onIpuntChange, onResetForm} = useForm({
-        description:'',
-    })
+    const {description,onIpuntChange,onResetForm} = useForm({
+        description:''
+    });
 
-    const [regalos, setRegalos] = useState(['Bicicleta','Auto','Pelota'])
-
-    const onFormSubmit = (event) => {
+    const onFormSubmit = () => {
         event.preventDefault();
-
-        if(description.length <= 1) return;
-
-        const newRegalo = {
-            id: new Date().getTime(),
-            description: description,
-            done: false,
-        }
-
-        setRegalos(...regalos,newRegalo);
-        onResetForm();
-
     }
 
     return (
-    <div className="aa">
-        <div className="container">
-        <div className="box">
-            <h2>Regalos</h2>
-            <form onSubmit={onFormSubmit}>
-                <input
-                type="text"
-                className=""
-                placeholder="Ingrese regalo"
-                name="description"
-                value= {description}
-                onChange = {onIpuntChange}
-                />
-                <button>Agregar</button>
-            </form>
-           
-            <ul>
-                {
-                    regalos.map(regalo =>
-
-                        <li key={regalo.id}>{regalo.description}</li> 
-                        )
-                }
-                {/* <li>Bicicleta</li>
-                <li>Auto control remoto</li>
-                <li>Pelota de futbol</li> */}
-            </ul>
-        </div>
-       </div>
-    </div>
-       
+        <>
+            <div className="aa">
+                <div className="container">
+                    <div className="box">
+                        <h2>Regalos</h2>
+                        <form onSubmit={onFormSubmit}>
+                            <input
+                                type='text'
+                                placeholder='Ingrese regalo'
+                                name='description'
+                                value={description}
+                                onChange={onIpuntChange}
+                            />
+                            <button>Agregar</button>
+                        </form>
+                        <ul>
+                            {
+                                initialState.map(regalo => 
+                                    <li key={regalo.id}>{regalo.description}</li>)
+                            }
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </>
     )
 }
