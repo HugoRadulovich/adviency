@@ -1,6 +1,8 @@
 
-import React from 'react'
-import { useForm } from './hooks/useForm'
+import React, { useReducer } from 'react'
+import { RegaloAdd } from './components/RegaloAdd'
+import { regalosReducer } from './helpers/regalosReducer'
+
 
 
 const initialState = [{
@@ -9,7 +11,7 @@ const initialState = [{
     done: false,
 },
 {
-    id: new Date().getTime(),
+    id: new Date().getTime() * 3,
     description: "Pista de carreras",
     done: false,
 }
@@ -17,13 +19,18 @@ const initialState = [{
 
 export const AdviencyApp = () => {
 
-    const {description,onIpuntChange,onResetForm} = useForm({
-        description:''
-    });
+    const [regalos, dispatch] = useReducer(regalosReducer,initialState)
 
-    const onFormSubmit = () => {
-        event.preventDefault();
+   
+    const handleNewRegalo = (regalo) => {
+        const action = {
+            type: '[REGALO] Add Regalo',
+            payload: regalo,
+        }
+
+        dispatch(action);
     }
+   
 
     return (
         <>
@@ -31,16 +38,7 @@ export const AdviencyApp = () => {
                 <div className="container">
                     <div className="box">
                         <h2>Regalos</h2>
-                        <form onSubmit={onFormSubmit}>
-                            <input
-                                type='text'
-                                placeholder='Ingrese regalo'
-                                name='description'
-                                value={description}
-                                onChange={onIpuntChange}
-                            />
-                            <button>Agregar</button>
-                        </form>
+                        <RegaloAdd onNewRegalo = {handleNewRegalo}/>
                         <ul>
                             {
                                 initialState.map(regalo => 
