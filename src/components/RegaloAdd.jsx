@@ -9,9 +9,11 @@ export const RegaloAdd = ({onNewRegalo}) => {
     });
 
     const onFormSubmit = (event) => {
+
         event.preventDefault();
 
         if(description.length <= 1) return; 
+        
 
         const newRegalo = {
             id: new Date().getTime(),

@@ -38,10 +38,10 @@ export const AdviencyApp = () => {
                 <div className="container">
                     <div className="box">
                         <h2>Regalos</h2>
-                        <RegaloAdd onNewRegalo = {handleNewRegalo}/>
+                        <RegaloAdd onNewRegalo = {handleNewRegalo }/>
                         <ul>
                             {
-                                initialState.map(regalo => 
+                                regalos.map(regalo => 
                                     <li key={regalo.id}>{regalo.description}</li>)
                             }
                         </ul>
