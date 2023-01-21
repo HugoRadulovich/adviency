@@ -1,6 +1,7 @@
 
 import React, { useReducer } from 'react'
 import { RegaloAdd } from './components/RegaloAdd'
+import { RegaloList } from './components/RegaloList'
 import { regalosReducer } from './helpers/regalosReducer'
 
 
@@ -30,7 +31,18 @@ export const AdviencyApp = () => {
 
         dispatch(action);
     }
-   
+
+
+    const handleDeleteRegalo = (id) => {
+
+        const action = {
+            type: '[REGALO] Remove Regalo',
+            payload: id,
+        }
+        dispatch(action)
+
+    }
+
 
     return (
         <>
@@ -39,12 +51,7 @@ export const AdviencyApp = () => {
                     <div className="box">
                         <h2>Regalos</h2>
                         <RegaloAdd onNewRegalo = {handleNewRegalo }/>
-                        <ul>
-                            {
-                                regalos.map(regalo => 
-                                    <li key={regalo.id}>{regalo.description}</li>)
-                            }
-                        </ul>
+                        <RegaloList regalos={regalos} onDelete={handleDeleteRegalo}/>
                     </div>
                 </div>
             </div>
