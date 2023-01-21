@@ -43,6 +43,14 @@ export const AdviencyApp = () => {
 
     }
 
+    const handleDeleteTodo = () => {
+        const action = {
+            type: '[REGALO] Remove Total',
+            
+        }
+        dispatch(action)
+    }
+
 
     return (
         <>
@@ -52,6 +60,7 @@ export const AdviencyApp = () => {
                         <h2>Regalos</h2>
                         <RegaloAdd onNewRegalo = {handleNewRegalo }/>
                         <RegaloList regalos={regalos} onDelete={handleDeleteRegalo}/>
+                        <button onClick={handleDeleteTodo}>Borrar Todo</button>
                     </div>
                 </div>
             </div>

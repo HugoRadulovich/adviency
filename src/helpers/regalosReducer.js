@@ -13,7 +13,11 @@ export const regalosReducer = (initialState = [], action) => {
         case '[REGALO] Remove Regalo':
             return initialState.filter(regalo => regalo.id !== action.payload)
             
-    
+            
+
+        case '[REGALO] Remove Total':
+            return [];    
+        
         default:
             return initialState;
     }
