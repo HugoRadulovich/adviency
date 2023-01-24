@@ -1,3 +1,4 @@
+import { regalosReducer } from "../helpers/regalosReducer";
 import { useForm } from "../hooks/useForm";
 
 
@@ -24,6 +25,8 @@ export const RegaloAdd = ({onNewRegalo}) => {
         onNewRegalo(newRegalo);
         onResetForm();
     }
+
+    
 
     return (
         <form onSubmit={onFormSubmit}>

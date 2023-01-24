@@ -51,6 +51,9 @@ export const AdviencyApp = () => {
         dispatch(action)
     }
 
+    
+
+    
 
     return (
         <>
@@ -58,7 +61,7 @@ export const AdviencyApp = () => {
                 <div className="container">
                     <div className="box">
                         <h2>Regalos</h2>
-                        <RegaloAdd onNewRegalo = {handleNewRegalo }/>
+                        <RegaloAdd onNewRegalo = {handleNewRegalo}/>
                         <RegaloList regalos={regalos} onDelete={handleDeleteRegalo}/>
                         <button onClick={handleDeleteTodo}>Borrar Todo</button>
                     </div>
