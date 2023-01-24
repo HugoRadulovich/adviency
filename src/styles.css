@@ -34,3 +34,8 @@ body{
 .but{
    margin: 5px;
 }
+
+.inputNumber{
+   width: 25px;
+   margin: 2px;
+}

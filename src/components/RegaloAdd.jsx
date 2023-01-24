@@ -3,7 +3,7 @@ import { useForm } from "../hooks/useForm";
 
 
 
-export const RegaloAdd = ({onNewRegalo}) => {
+export const RegaloAdd = ({onNewRegalo, regalos}) => {
 
     const {description,onIpuntChange,onResetForm} = useForm({
         description:''
@@ -14,6 +14,12 @@ export const RegaloAdd = ({onNewRegalo}) => {
         event.preventDefault();
 
         if(description.length <= 1) return; 
+        
+        let regalo = regalos.filter(regalo => regalo.description === description);
+        if (regalo.length >= 1) {
+            alert('El regalo ya se encuentra dentro de la lista')
+            return
+        }
         
 
         const newRegalo = {
@@ -36,6 +42,12 @@ export const RegaloAdd = ({onNewRegalo}) => {
                                 name='description'
                                 value={description}
                                 onChange={onIpuntChange}
+                            />
+                            <input
+                            type='number'
+                            className="inputNumber"
+                            min= '0'
+                            max= '100'
                             />
                             <button>Agregar</button>
                         </form>
