@@ -5,15 +5,17 @@ import { useForm } from "../hooks/useForm";
 
 export const RegaloAdd = ({onNewRegalo, regalos}) => {
 
-    const {description,onIpuntChange,onResetForm} = useForm({
-        description:''
-    });
+    const {descriptionCantidad,description,onIpuntChange,onResetForm} = useForm({
+        description:'',
+        descriptionCantidad: '',
 
+    });
     const onFormSubmit = (event) => {
 
         event.preventDefault();
 
         if(description.length <= 1) return; 
+        console.log(descriptionCantidad)
         
         let regalo = regalos.filter(regalo => regalo.description === description);
         if (regalo.length >= 1) {
@@ -25,6 +27,7 @@ export const RegaloAdd = ({onNewRegalo, regalos}) => {
         const newRegalo = {
             id: new Date().getTime(),
             description: description,
+            cantidad: descriptionCantidad,
             done: false,
         }
 
@@ -45,9 +48,13 @@ export const RegaloAdd = ({onNewRegalo, regalos}) => {
                             />
                             <input
                             type='number'
+                            name='descriptionCantidad'
+                            value={descriptionCantidad}
+                            onChange={onIpuntChange}
                             className="inputNumber"
                             min= '0'
                             max= '100'
+                            
                             />
                             <button>Agregar</button>
                         </form>

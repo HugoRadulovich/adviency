@@ -11,7 +11,7 @@ export const RegaloList = ({regalos, onDelete}) => {
                 {  regalos.length !== 0 
             
                     ? regalos.map(regalo => 
-                        <li key={regalo.id}>{regalo.description}
+                        <li key={regalo.id}>{regalo.description} x{regalo.cantidad}
                         <button className="but" onClick={() => onDelete(regalo.id)}>X</button>
                         </li>
                       
