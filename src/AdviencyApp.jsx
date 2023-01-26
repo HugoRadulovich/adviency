@@ -1,5 +1,5 @@
 
-import React, { useReducer } from 'react'
+import React, { useEffect, useReducer } from 'react'
 import { RegaloAdd } from './components/RegaloAdd'
 import { RegaloList } from './components/RegaloList'
 import { regalosReducer } from './helpers/regalosReducer'
@@ -20,11 +20,21 @@ const initialState = [{
 }
 ]
 
+const init = () => {
+    return JSON.parse(localStorage.getItem('regalos')) || []
+}
+
 export const AdviencyApp = () => {
 
-    const [regalos, dispatch] = useReducer(regalosReducer,initialState)
+    const [regalos, dispatch] = useReducer(regalosReducer,initialState,init )
 
-   
+
+    useEffect(() => {
+        localStorage.setItem('regalos',JSON.stringify(regalos))
+    }, [regalos])
+    
+
+
     const handleNewRegalo = (regalo) => {
         const action = {
             type: '[REGALO] Add Regalo',

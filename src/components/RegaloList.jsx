@@ -11,7 +11,9 @@ export const RegaloList = ({regalos, onDelete}) => {
                 {  regalos.length !== 0 
             
                     ? regalos.map(regalo => 
-                        <li key={regalo.id}>{regalo.description} x{regalo.cantidad}
+                        <li key={regalo.id}>
+                            <img src={regalo.img} alt="" className="imgRegalo" />
+                            {regalo.description} x{regalo.cantidad}
                         <button className="but" onClick={() => onDelete(regalo.id)}>X</button>
                         </li>
                       

@@ -5,9 +5,10 @@ import { useForm } from "../hooks/useForm";
 
 export const RegaloAdd = ({onNewRegalo, regalos}) => {
 
-    const {descriptionCantidad,description,onIpuntChange,onResetForm} = useForm({
+    const {descriptionImg,descriptionCantidad,description,onIpuntChange,onResetForm} = useForm({
         description:'',
         descriptionCantidad: '',
+        descriptionImg: '',
 
     });
     const onFormSubmit = (event) => {
@@ -23,10 +24,12 @@ export const RegaloAdd = ({onNewRegalo, regalos}) => {
             return
         }
         
+        console.log(descriptionImg)
 
         const newRegalo = {
             id: new Date().getTime(),
             description: description,
+            img: descriptionImg,
             cantidad: descriptionCantidad,
             done: false,
         }
@@ -41,11 +44,23 @@ export const RegaloAdd = ({onNewRegalo, regalos}) => {
         <form onSubmit={onFormSubmit}>
                             <input
                                 type='text'
+                                className="inputDescription"
                                 placeholder='Ingrese regalo'
                                 name='description'
                                 value={description}
                                 onChange={onIpuntChange}
                             />
+
+                            <input
+                            type='text'
+                            className='inputImg'
+                            placeholder='http://image..'
+                            name='descriptionImg'
+                            value={descriptionImg}
+                            onChange={onIpuntChange}
+                            />
+                            
+
                             <input
                             type='number'
                             name='descriptionCantidad'
