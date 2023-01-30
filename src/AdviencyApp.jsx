@@ -1,5 +1,6 @@
 
 import React, { useEffect, useReducer } from 'react'
+import { Modal } from './components/Modal'
 import { RegaloAdd } from './components/RegaloAdd'
 import { RegaloList } from './components/RegaloList'
 import { regalosReducer } from './helpers/regalosReducer'
@@ -63,7 +64,14 @@ export const AdviencyApp = () => {
         dispatch(action)
     }
 
-    
+    const handleEditRegalo = (id) => {
+        const action = {
+            type: '[REGALO] Edit Regalo',
+
+        }
+
+        dispatch(action)
+    }
 
     
 
@@ -73,8 +81,8 @@ export const AdviencyApp = () => {
                 <div className="container">
                     <div className="box">
                         <h2>Regalos</h2>
-                        <RegaloAdd onNewRegalo = {handleNewRegalo} regalos={regalos}/>
-                        <RegaloList regalos={regalos} onDelete={handleDeleteRegalo}/>
+                        <Modal handleNewRegalo={handleNewRegalo} regalos={regalos}/>
+                        <RegaloList regalos={regalos} onDelete={handleDeleteRegalo} onEdit={handleEditRegalo}/>
                         <button onClick={handleDeleteTodo}>Borrar Todo</button>
                     </div>
                 </div>

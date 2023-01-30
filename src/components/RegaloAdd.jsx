@@ -1,12 +1,12 @@
-import { regalosReducer } from "../helpers/regalosReducer";
 import { useForm } from "../hooks/useForm";
 
 
 
 export const RegaloAdd = ({onNewRegalo, regalos}) => {
 
-    const {descriptionImg,descriptionCantidad,description,onIpuntChange,onResetForm} = useForm({
+    const {descriptionName,descriptionImg,descriptionCantidad,description,onIpuntChange,onResetForm} = useForm({
         description:'',
+        descriptionName: '',
         descriptionCantidad: '',
         descriptionImg: '',
 
@@ -24,13 +24,13 @@ export const RegaloAdd = ({onNewRegalo, regalos}) => {
             return
         }
         
-        console.log(descriptionImg)
 
         const newRegalo = {
             id: new Date().getTime(),
             description: description,
             img: descriptionImg,
             cantidad: descriptionCantidad,
+            name: descriptionName,
             done: false,
         }
 
@@ -41,6 +41,11 @@ export const RegaloAdd = ({onNewRegalo, regalos}) => {
     
 
     return (
+
+
+        
+
+
         <form onSubmit={onFormSubmit}>
                             <input
                                 type='text'
@@ -68,8 +73,15 @@ export const RegaloAdd = ({onNewRegalo, regalos}) => {
                             onChange={onIpuntChange}
                             className="inputNumber"
                             min= '0'
-                            max= '100'
-                            
+                            max= '100' 
+                            />
+                             <input
+                                type='text'
+                                className="descriptionName"
+                                placeholder='Ingrese nombre'
+                                name='descriptionName'
+                                value={descriptionName}
+                                onChange={onIpuntChange}
                             />
                             <button>Agregar</button>
                         </form>
