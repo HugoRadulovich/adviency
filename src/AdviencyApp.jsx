@@ -64,14 +64,7 @@ export const AdviencyApp = () => {
         dispatch(action)
     }
 
-    const handleEditRegalo = (id) => {
-        const action = {
-            type: '[REGALO] Edit Regalo',
-
-        }
-
-        dispatch(action)
-    }
+    
 
     
 
@@ -82,7 +75,7 @@ export const AdviencyApp = () => {
                     <div className="box">
                         <h2>Regalos</h2>
                         <Modal handleNewRegalo={handleNewRegalo} regalos={regalos}/>
-                        <RegaloList regalos={regalos} onDelete={handleDeleteRegalo} onEdit={handleEditRegalo}/>
+                        <RegaloList regalos={regalos} onDelete={handleDeleteRegalo} />
                         <button onClick={handleDeleteTodo}>Borrar Todo</button>
                     </div>
                 </div>

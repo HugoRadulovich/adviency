@@ -19,12 +19,6 @@ export const regalosReducer = (initialState = [], action) => {
             return [];    
         
 
-        case '[REGALO] Edit Regalo':
-            initialState.find(regalo => {
-                regalo.id === action.payload
-                return action.payload
-            })
-
         
         default:
             return initialState;
