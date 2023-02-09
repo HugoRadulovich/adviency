@@ -1,48 +1,14 @@
+
 body{
-   background-image: url(./assets/fondo_navidad.jpg);
+    background-image: url(./assets/fondo_navidad.jpg)
 }
 
-.aa{
-   display: flex;
-   justify-content: center;
-   
-}
+.card{
+    width: 30rem; 
+    height: 20rem;
+    margin: auto;
 
-.container{
-   
-   display: flex;
-   width: 50rem;
-   height: 50rem;
-   justify-content: center;
-   align-items: center;
-   
-}
-
-.box{
-   display: flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   background-color: white;
-   border: 3px solid black;
-   width: 70%;
-   height: 30%;
-   margin: 2px;
-   padding: 5px;
 }
 
 
-.but{
-   margin: 5px;
-}
 
-.inputNumber{
-   width: 25px;
-   margin: 2px;
-}
-
-.imgRegalo{
-   width: 40px;
-   height: 40px;
-   margin: 5px;
-}
