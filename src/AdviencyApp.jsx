@@ -1,3 +1,5 @@
+import { AddRegalo } from "./components/AddRegalo"
+import { RegaloList } from "./components/RegaloList"
 
 
 
@@ -27,7 +29,12 @@ export const AdviencyApp = () => {
                 
                     <div className="container border d-flex justify-content-center align-items-center">
                     <div className="card">
-                        <div className="card-body"></div>
+                        <div className="card-body">
+                            <h5 className="card-title text-center">Regalos</h5>
+                            <AddRegalo/>
+                            <RegaloList/>
+                        </div>
+                            
                     </div>
                     </div>
                 

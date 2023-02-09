@@ -3,11 +3,34 @@ body{
     background-image: url(./assets/fondo_navidad.jpg)
 }
 
+.container{
+    height: 50rem;
+}
+
 .card{
-    width: 30rem; 
+
+    width: 35rem; 
     height: 20rem;
     margin: auto;
 
+}
+
+.inputText{
+    width: 10rem;
+    border-radius: 3px;
+    margin: 3px;
+}
+
+.inputNumber{
+    width: 3rem;
+    border-radius: 3px;
+    margin: 3px;
+}
+
+.btnAdd{
+    height:2.8rem;
+    margin: 3px;
+    
 }
 
 
